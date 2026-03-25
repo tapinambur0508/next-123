@@ -4,6 +4,7 @@ import "./globals.css";
 
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import TanstackProvider from "@/components/TanstackProvider/TanstackProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,11 +32,13 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-screen flex-col bg-background text-foreground">
-        <Header />
-        <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-10">
-          {children}
-        </main>
-        <Footer />
+        <TanstackProvider>
+          <Header />
+          <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-10">
+            {children}
+          </main>
+          <Footer />
+        </TanstackProvider>
       </body>
     </html>
   );
