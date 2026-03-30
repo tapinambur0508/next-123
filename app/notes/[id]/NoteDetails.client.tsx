@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 
 import { getNote } from "@/lib/api";
@@ -9,6 +9,7 @@ import { getNote } from "@/lib/api";
 function NoteDetailsClient() {
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const { id } = useParams<{ id: string }>();
+  const router = useRouter();
 
   const { data } = useQuery({
     queryKey: ["note", id],
@@ -20,8 +21,13 @@ function NoteDetailsClient() {
     setIsEdit((prevIsEdit) => !prevIsEdit);
   };
 
+  const handleBack = () => {
+    router.back();
+  };
+
   return (
     <>
+      <button onClick={handleBack}>Back</button>
       <button onClick={toggleEdit}>Edit</button>
 
       {isEdit ? (
