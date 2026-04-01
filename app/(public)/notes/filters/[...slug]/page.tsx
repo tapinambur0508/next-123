@@ -9,13 +9,11 @@ interface NotesFiltersProps {
 async function NotesFilters({ params }: NotesFiltersProps) {
   const { slug } = await params;
   const category = slug[0] === "all" ? undefined : slug[0];
-  const data = await getNotes(category);
+  const response = await getNotes(category);
 
   return (
-    <div>
-      <h1>Notes by filters</h1>
-
-      <NoteList notes={data.notes} />
+    <div className="rounded-xl border border-border bg-surface p-8 shadow-sm">
+      <NoteList notes={response.notes} />
     </div>
   );
 }

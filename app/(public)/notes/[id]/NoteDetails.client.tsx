@@ -25,6 +25,8 @@ function NoteDetailsClient() {
     router.back();
   };
 
+  console.log({ data });
+
   return (
     <>
       <button onClick={handleBack}>Back</button>

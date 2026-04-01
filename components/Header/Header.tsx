@@ -29,7 +29,7 @@ function Header() {
           </li>
           <li>
             <Link
-              href="/notes"
+              href="/notes/filters/all"
               className="rounded-lg px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-surface-hover hover:text-primary"
             >
               Notes
