@@ -8,7 +8,7 @@ function Header() {
           href="/"
           className="text-xl font-bold tracking-tight text-primary"
         >
-          Next App
+          NoteHub
         </Link>
         <ul className="flex items-center gap-1">
           <li>
