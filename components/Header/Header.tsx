@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import CardClient from "./Card.client";
+
 function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-surface/80 backdrop-blur-md">
@@ -44,12 +46,7 @@ function Header() {
             </Link>
           </li>
           <li>
-            <Link
-              href="/control-panel"
-              className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-primary-dark"
-            >
-              Control panel
-            </Link>
+            <CardClient />
           </li>
         </ul>
       </nav>
