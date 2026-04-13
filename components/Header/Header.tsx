@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import CardClient from "./Card.client";
+import LogoutClient from "./Logout.client";
 
 function Header() {
   return (
@@ -47,6 +48,25 @@ function Header() {
           </li>
           <li>
             <CardClient />
+          </li>
+          <li>
+            <Link
+              href="/sign-in"
+              className="rounded-lg px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-surface-hover hover:text-primary"
+            >
+              Login
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/sign-up"
+              className="rounded-lg px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-surface-hover hover:text-primary"
+            >
+              Register
+            </Link>
+          </li>
+          <li>
+            <LogoutClient />
           </li>
         </ul>
       </nav>

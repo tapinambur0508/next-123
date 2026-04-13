@@ -1,4 +1,4 @@
-import type {Metadata} from "next";
+import type { Metadata } from "next";
 import {
   QueryClient,
   HydrationBoundary,
@@ -13,7 +13,9 @@ interface NoteProps {
   params: Promise<{ id: string }>;
 }
 
-export async function generateMetadata({params}: NoteProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: NoteProps): Promise<Metadata> {
   const { id } = await params;
   const response = await getNote(id);
 
@@ -30,9 +32,9 @@ export async function generateMetadata({params}: NoteProps): Promise<Metadata> {
           url: "https://ac.goit.global/fullstack/react/og-meta.jpg",
           width: 1200,
           height: 630,
-          alt: response.title
-        }
-      ]
+          alt: response.title,
+        },
+      ],
     },
   };
 }
