@@ -4,12 +4,13 @@ import "./globals.css";
 
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import AuthProvider from "@/components/AuthProvider/AuthProvider";
 import TanstackProvider from "@/components/TanstackProvider/TanstackProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-  weight: ["200", "300", "400"]
+  weight: ["200", "300", "400"],
 });
 
 const geistMono = Geist_Mono({
@@ -36,12 +37,14 @@ export default function RootLayout({
     >
       <body className="flex min-h-screen flex-col bg-background text-foreground">
         <TanstackProvider>
-          <Header />
-          <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-10">
-            {children}
-            {modal}
-          </main>
-          <Footer />
+          <AuthProvider>
+            <Header />
+            <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-10">
+              {children}
+              {modal}
+            </main>
+            <Footer />
+          </AuthProvider>
         </TanstackProvider>
       </body>
     </html>

@@ -2,7 +2,11 @@ import axios from "axios";
 
 import type { Note, NewNotePayload } from "@/types/note";
 import type { Category } from "@/types/category";
-import type { RegisterRequest, LoginRequest } from "@/types/auth";
+import type {
+  RegisterRequest,
+  LoginRequest,
+  CheckSessionRequest,
+} from "@/types/auth";
 import type { User } from "@/types/user";
 
 const API = axios.create({
@@ -50,4 +54,14 @@ export const login = async (data: LoginRequest) => {
 
 export const logout = async () => {
   await API.post<User>("/auth/logout");
+};
+
+export const checkSession = async () => {
+  const { data } = await API.get<CheckSessionRequest>("/auth/session");
+  return data.success;
+};
+
+export const getMe = async () => {
+  const { data } = await API.get<User>("/auth/me");
+  return data;
 };
